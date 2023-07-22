@@ -50,8 +50,8 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
   );
 
   return (
-    <div className="hidden md:flex min-h-max w-full">
-      <div className="flex flex-col py-[34px] w-[303px] bg-primaryColor px-[33px] items-start justify-start">
+    <div className="flex min-h-max w-full">
+      <div className="hidden md:flex flex-col py-[34px] w-[303px] bg-primaryColor px-[33px] items-start justify-start">
         <h1 className="text-base font-semibold tracking-[0.66em] text-blackColor">
           KOSTKU
         </h1>

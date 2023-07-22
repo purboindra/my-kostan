@@ -58,7 +58,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="flex flex-col h-full ml-[53px] my-32 mr-[68px] overflow-hidden overflow-y-auto">
+    <div className="md:flex flex-col h-full ml-[53px] my-32 mr-[68px] ">
       <div className="pb-14">
         <h1 className="font-semibold text-4xl text-blackColor">
           Mau Sewa Kos?
@@ -67,13 +67,13 @@ export default function Home() {
           Silahkan pilih kamar yang kosong.
         </p>
       </div>
-      <div className="flex flex-row w-full gap-[39px] mt-[40px] justify-between">
+      <div className="flex md:flex-col sm:flex-col lg:flex-col xl:flex-row 2xl:flex-row flex-col w-full lg:gap-[39px] 2xl:gap-[39px] gap-5 lg:mt-4 2xl:mt-4 justify-between">
         <div className="flex-2 flex-col">
           <h1 className="font-semibold text-base text-blackColor">
             Kost Mawar
           </h1>
           {/* ROOMS */}
-          <div className="mt-[30px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-6 2xl:grid-cols-6 gap-5">
+          <div className="mt-[30px] grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-6 2xl:grid-cols-6 gap-5">
             {melaatiRooms.map((room) => (
               <div
                 key={room.roomId}
@@ -89,7 +89,7 @@ export default function Home() {
             Kost Melati
           </h1>
           {/* ROOMS */}
-          <div className="mt-[30px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-6 2xl:grid-cols-6 gap-5">
+          <div className="mt-[30px] grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-6 2xl:grid-cols-6 gap-5">
             {melaatiRooms.map((room) => (
               <div
                 key={room.roomId}

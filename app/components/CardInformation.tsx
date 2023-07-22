@@ -10,7 +10,7 @@ const CardInformation = () => {
   ];
 
   return (
-    <div className="shadow-2xl rounded-2xl flex-1 flex-col h-full ml-[39px] py-16 px-8 items-center">
+    <div className="shadow-xl rounded-2xl flex-1 flex-col h-full ml-[39px] py-16 px-8 items-center">
       <h1 className="text-base font-semibold text-blackColor">
         Latest Information
       </h1>
