@@ -52,7 +52,7 @@ export default function Home() {
       isAvailable: true,
     },
     {
-      roomId: 10,
+      roomId: 12,
       isAvailable: false,
     },
   ];
