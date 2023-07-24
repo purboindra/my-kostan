@@ -1,64 +1,27 @@
+import { BiListUl } from "react-icons/bi";
 import CardInformation from "../components/CardInformation";
-
-type roomType = {
-  roomId: number;
-  isAvailable: boolean;
-};
+import CircleAvatar from "../components/CircleAvatar";
+import RoomsGrid from "../components/RoomsGrid";
 
 export default function Home() {
-  const melaatiRooms: roomType[] = [
-    {
-      roomId: 1,
-      isAvailable: false,
-    },
-    {
-      roomId: 2,
-      isAvailable: true,
-    },
-    {
-      roomId: 3,
-      isAvailable: true,
-    },
-    {
-      roomId: 4,
-      isAvailable: true,
-    },
-    {
-      roomId: 5,
-      isAvailable: false,
-    },
-    {
-      roomId: 6,
-      isAvailable: false,
-    },
-    {
-      roomId: 7,
-      isAvailable: false,
-    },
-    {
-      roomId: 8,
-      isAvailable: false,
-    },
-    {
-      roomId: 9,
-      isAvailable: true,
-    },
-    {
-      roomId: 10,
-      isAvailable: true,
-    },
-    {
-      roomId: 11,
-      isAvailable: true,
-    },
-    {
-      roomId: 12,
-      isAvailable: false,
-    },
-  ];
-
   return (
-    <div className="md:flex flex-col h-full ml-[53px] my-32 mr-[68px] ">
+    <div className="flex flex-col h-full ml-[53px] my-5 xl:my-32 2xl:my-32 lg:my-32 mr-[68px] ">
+      <div className="md:hidden sm:flex flex h-fit py-2 px-3 w-full items-center justify-between">
+        <div className="h-9 w-9 flex justify-center items-center p-1  bg-white shadow-md rounded-sm hover:cursor-pointer">
+          <BiListUl />
+        </div>
+        <div className="flex flex-row gap-3 mt-[24px] items-center content-center relative">
+          <CircleAvatar
+            imageUrl="https://w0.peakpx.com/wallpaper/400/630/HD-wallpaper-johan-liebheart-libheart-liebert-monster-monster-without-name-otto-the-monster-thomas.jpg"
+            className="h-7 w-7 object-cover rounded-full object-bottom"
+            width={22}
+            height={22}
+          />
+          <p className="text-xs text-[#3C3737] truncate flex-1">
+            Hi Johan Liebert
+          </p>
+        </div>
+      </div>
       <div className="pb-14">
         <h1 className="font-semibold text-4xl text-blackColor">
           Mau Sewa Kos?
@@ -69,37 +32,9 @@ export default function Home() {
       </div>
       <div className="flex md:flex-col sm:flex-col lg:flex-col xl:flex-row 2xl:flex-row flex-col w-full lg:gap-[39px] 2xl:gap-[39px] gap-5 lg:mt-4 2xl:mt-4 justify-between">
         <div className="flex-2 flex-col">
-          <h1 className="font-semibold text-base text-blackColor">
-            Kost Mawar
-          </h1>
-          {/* ROOMS */}
-          <div className="mt-[30px] grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-6 2xl:grid-cols-6 gap-5">
-            {melaatiRooms.map((room) => (
-              <div
-                key={room.roomId}
-                className={`p-8 rounded-lg ${
-                  room.isAvailable ? "bg-primaryColor" : "bg-secondaryColor"
-                } flex items-center justify-center text-base font-semibold text-blackColor`}
-              >
-                {room.roomId}
-              </div>
-            ))}
-          </div>
-          <h1 className="font-semibold text-base text-blackColor mt-[43px]">
-            Kost Melati
-          </h1>
-          {/* ROOMS */}
-          <div className="mt-[30px] grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-6 2xl:grid-cols-6 gap-5">
-            {melaatiRooms.map((room) => (
-              <div
-                key={room.roomId}
-                className={`p-8 rounded-lg ${
-                  room.isAvailable ? "bg-primaryColor" : "bg-secondaryColor"
-                } flex items-center justify-center text-base font-semibold text-blackColor`}
-              >
-                {room.roomId}
-              </div>
-            ))}
+          <RoomsGrid label="Kost Mawar" />
+          <div className="mt-7">
+            <RoomsGrid label="Kost Melati" />
           </div>
         </div>
         <CardInformation />
