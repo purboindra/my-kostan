@@ -1,11 +1,12 @@
 import * as Dialog from "@radix-ui/react-dialog";
 import React from "react";
+import { IoMdClose } from "react-icons/io";
 
 interface IModalProps {
   title?: string;
   description?: string;
   isOpen?: boolean;
-  onChange: (isOpen?: boolean) => void;
+  onChange: (isOpen: boolean) => void;
   children: React.ReactNode;
 }
 
@@ -26,6 +27,11 @@ const Modal: React.FC<IModalProps> = ({
               <Dialog.Description>{description}</Dialog.Description>
             )}
             <div>{children}</div>
+            <Dialog.Close asChild>
+              <button className="text-neutral-400 hover:text-neutral-600 absolute top-[10px] right-[10px] inline-flex h-[25px] w-[25px] appearance-none items-center justify-center rounded-full focus:outline-none ">
+                <IoMdClose />
+              </button>
+            </Dialog.Close>
           </Dialog.Content>
         </Dialog.Overlay>
       </Dialog.Portal>

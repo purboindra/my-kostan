@@ -4,10 +4,19 @@ import Image from "next/image";
 import Modal from "./Modal";
 import Input from "../Inputs";
 import Button from "../Button";
+import useAuthModal from "@/app/hooks/useAuthModal";
 
 const RegisterModal = () => {
+  const { isOpen, onOpen, onClose } = useAuthModal();
+
+  const onChange = (val: boolean) => {
+    if (!val) {
+      onClose();
+    }
+  };
+
   return (
-    <Modal isOpen={true} onChange={(val) => false}>
+    <Modal isOpen={isOpen} onChange={onChange}>
       <div className="flex flex-col w-full items-center">
         <Image
           alt="guest-registration"
