@@ -50,12 +50,12 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
   );
 
   return (
-    <div className="flex min-h-max w-full">
-      <div className="hidden md:flex flex-col py-[34px] w-[303px] bg-primaryColor px-[33px] items-start justify-start">
+    <div className="flex h-full">
+      <div className="hidden md:flex flex-col py-[34px] w-[303px] bg-primaryColor px-[33px] items-start">
         <h1 className="text-base font-semibold tracking-[0.66em] text-blackColor">
           KOSTKU
         </h1>
-        <div className="flex flex-row gap-3 mt-[24px] items-center content-center relative">
+        <div className="flex flex-row gap-3 mt-[24px] items-center content-center">
           <CircleAvatar
             imageUrl="https://w0.peakpx.com/wallpaper/400/630/HD-wallpaper-johan-liebheart-libheart-liebert-monster-monster-without-name-otto-the-monster-thomas.jpg"
             className="h-12 w-12 object-cover rounded-full object-bottom"
@@ -78,7 +78,9 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
           ))}
         </div>
       </div>
-      <main>{children}</main>
+      <main className="flex-1 h-auto overflow-y-auto py-24 px-12">
+        {children}
+      </main>
     </div>
   );
 };

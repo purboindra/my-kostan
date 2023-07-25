@@ -16,7 +16,7 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   isActive,
 }) => {
   return (
-    <Link href={href} className="flex flex-row gap-[13px]">
+    <Link href={href} className="flex h-auto flex-row gap-[13px]">
       <Icon size={24} />
       <p
         className={`truncate w-full flex-1 text-xl 
