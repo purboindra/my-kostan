@@ -1,4 +1,3 @@
-import React from "react";
 
 const CardInformation = () => {
   const informations = [
@@ -10,7 +9,7 @@ const CardInformation = () => {
   ];
 
   return (
-    <div className="shadow-xl rounded-2xl flex-1 flex-col h-full ml-[39px] py-16 px-8 items-center">
+    <div className="shadow-xl rounded-2xl flex flex-col h-full py-16 px-4 items-center">
       <h1 className="text-base font-semibold text-blackColor">
         Latest Information
       </h1>

@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useMemo } from "react";
-import CircleAvatar from "./CircleAvatar";
 import { usePathname } from "next/navigation";
+import React, { useMemo } from "react";
 import { AiOutlineHome } from "react-icons/ai";
 import { BiBed, BiDoorOpen, BiListCheck, BiLogOut } from "react-icons/bi";
+import CircleAvatar from "./CircleAvatar";
 import SidebarItem from "./SidebarItem";
 
 interface SidebarProps {
@@ -50,8 +50,8 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
   );
 
   return (
-    <div className="flex h-full">
-      <div className="hidden md:flex flex-col py-[34px] w-[303px] bg-primaryColor px-[33px] items-start">
+    <div className=" flex h-full">
+      <div className="hidden md:flex flex-col lg:py-[34px] xl:py-[34px] 2xl:py-[34px] py-0 w-[303px] bg-primaryColor px-[33px] items-start">
         <h1 className="text-base font-semibold tracking-[0.66em] text-blackColor">
           KOSTKU
         </h1>
