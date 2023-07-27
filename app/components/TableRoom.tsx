@@ -36,7 +36,7 @@ const TableRoom = () => {
 
   return (
     <div className="flex flex-col">
-      <div className="flex flex-row w-full gap-[200px] py-4 px-8 bg-primaryColor bg-opacity-20 rounded-lg">
+      <div className="flex flex-row w-full lg:gap-32 xl:gap-[200px] 2xl:gap-[200px] gap-10 py-4 px-8 bg-primaryColor bg-opacity-20 rounded-lg">
         {listHeader.map((title, index) => (
           <h1
             key={title}
