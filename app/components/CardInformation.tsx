@@ -1,4 +1,3 @@
-
 const CardInformation = () => {
   const informations = [
     "Kost Melati - Kamar No. 1 Telah membayar tagihan Agustus 2022 pada 13/05/2022",
