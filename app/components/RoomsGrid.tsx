@@ -67,15 +67,15 @@ const RoomsGrid: React.FC<IRoomsGrid> = ({ label }) => {
   const { onOpen } = useAuthModal();
 
   return (
-    <div>
+    <div className="w-full flex flex-col">
       <h1 className="font-semibold text-base text-blackColor ">{label}</h1>
       {/* ROOMS */}
-      <div className="mt-[30px] grid grid-cols-4  2xl:grid-cols-6 gap-5">
+      <div className="mt-[30px] grid grid-cols-4 lg:grid-cols-6 xl:grid-cols-6 2xl:grid-cols-6 gap-4">
         {melaatiRooms.map((room) => (
           <div
             onClick={onOpen}
             key={room.roomId}
-            className={`p-8 rounded-lg shadow-lg ${
+            className={`w-[90px] h-[90px] rounded-lg shadow-lg mr-0 md:mr-0 sm:mr-0 lg:mr-[21px] xl:mr-[21px] 2xl:mr-[21px] ${
               room.isAvailable ? "bg-primaryColor" : "bg-secondaryColor"
             } flex items-center justify-center text-base font-semibold text-blackColor`}
           >
