@@ -51,7 +51,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
 
   return (
     <div className=" flex h-full">
-      <div className="hidden md:flex flex-col lg:py-[34px] xl:py-[34px] 2xl:py-[34px] py-0 w-[303px] bg-primaryColor px-[33px] items-start">
+      <div className="hidden md:flex flex-col md:py-[34px] lg:py-[34px] xl:py-[34px] 2xl:py-[34px] py-0 lg:px-[34px] xl:px-[34px] 2xl:px-[34px] md:px-[34px] w-[303px] bg-primaryColor items-start">
         <h1 className="text-base font-semibold tracking-[0.66em] text-blackColor">
           KOSTKU
         </h1>
@@ -78,7 +78,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
           ))}
         </div>
       </div>
-      <main className="flex-1 h-auto overflow-y-auto py-24 px-12">
+      <main className="flex-1 h-full overflow-y-auto 2xl:py-24 lg:py-24 xl:py-24 lg:px-12 xl:px-12 2xl:px-12">
         {children}
       </main>
     </div>
