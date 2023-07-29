@@ -8,7 +8,7 @@ const CardInformation = () => {
   ];
 
   return (
-    <div className="w-[314px] shadow-xl rounded-2xl flex flex-col h-full py-16 px-4 items-center">
+    <div className="lg:w-[314px] xl:w-[314px] 2xl:w-[314px] w-full shadow-xl rounded-2xl flex flex-col h-full py-16 px-4 items-center">
       <h1 className="text-base font-semibold text-blackColor">
         Latest Information
       </h1>
