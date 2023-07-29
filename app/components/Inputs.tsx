@@ -1,21 +1,54 @@
 import React, { forwardRef } from "react";
+import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
 
 interface InputsProps {
+  id: string;
   label: string;
+  errors: FieldErrors;
+  register: UseFormRegister<FieldValues>;
+  messageRequired: string;
+  required?: boolean;
 }
 
 interface InputsProps extends React.InputHTMLAttributes<HTMLInputElement> {}
 
 const Input = forwardRef<HTMLInputElement, InputsProps>(
-  ({ label, className, type, disabled, ...props }, ref) => {
+  (
+    {
+      register,
+      required,
+      messageRequired,
+      id,
+      errors,
+      label,
+      className,
+      type,
+      disabled,
+      ...props
+    },
+    ref
+  ) => {
     return (
       <div className="flex flex-col gap-1 mt-4 w-full">
         <p className="text-xs text-[#3C3737] font-normal">{label}</p>
         <input
+          id={id}
           type={type}
-          className={` rounded-md border border-[#C4C4C4] p-3 text-sm disabled:cursor-not-allowed disabled:opacity-50 focus:outline-none ${className}`}
+          className={`rounded-md border border-[#C4C4C4] p-3 text-sm disabled:cursor-not-allowed disabled:opacity-50 focus:border-[secondaryColor] ${className} ${
+            errors[id] && "border-rose-500 focus:border-rose-600 "
+          }`}
           disabled={disabled}
-          ref={ref}
+          {...register(id, {
+            required,
+            // validate: {
+            //   matchPattern:
+            //     id === "email"
+            //       ? (v) =>
+            //           /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
+            //           "Email address must be a valid address"
+            //       : (v) => null || "",
+            // },
+          })}
           {...props}
         />
       </div>

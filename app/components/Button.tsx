@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, forwardRef } from "react";
+import React, { forwardRef } from "react";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
@@ -14,6 +14,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled}
         ref={ref}
         {...props}
+        onClick={onClick}
       >
         {children}
       </button>

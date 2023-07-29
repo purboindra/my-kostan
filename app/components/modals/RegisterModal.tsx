@@ -1,10 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import { signIn } from "next-auth/react";
+import useAuthModal from "@/app/hooks/useAuthModal";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+
 import Modal from "./Modal";
 import Input from "../Inputs";
 import Button from "../Button";
-import useAuthModal from "@/app/hooks/useAuthModal";
 
 const RegisterModal = () => {
   const { isOpen, onOpen, onClose } = useAuthModal();
@@ -13,6 +16,36 @@ const RegisterModal = () => {
     if (!val) {
       onClose();
     }
+  };
+
+  const {
+    reset,
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FieldValues>({
+    defaultValues: {
+      email: "",
+      username: "",
+      password: "",
+    },
+  });
+
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    signIn("credentials", {
+      redirect: false,
+      email: data.email,
+      name: data.username,
+      password: data.password,
+    })
+      .then((resp) => {
+        if (resp?.ok) {
+          console.log("RESPONSE", resp.url);
+          onClose();
+          reset();
+        }
+      })
+      .catch((e) => console.log(e));
   };
 
   return (
@@ -35,15 +68,53 @@ const RegisterModal = () => {
             Fill the form below to complete the registration KOST
           </p>
         </div>
-        <Input label="Name" />
-        <Input label="ID Card" />
-        <Input label="Phone Number" />
-        <div className="flex justify-end w-full mt-4">
-          <p className="text-secondaryColor text-xs italic underline">
-            See room details
-          </p>
-        </div>
-        <Button className="mt-[54px]">REGISTER</Button>
+        <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+          <Input
+            id="email"
+            label="Email"
+            type="email"
+            errors={errors}
+            messageRequired="This email field is required"
+            register={register}
+            required={true}
+          />
+          {errors.email && (
+            <p className="text-xs text-rose-700 mt-1">{`${errors.email.message}`}</p>
+          )}
+          <Input
+            id="username"
+            label="Name"
+            errors={errors}
+            type="text"
+            messageRequired="This user name field is required"
+            register={register}
+            required={true}
+          />
+          {errors.username && (
+            <p className="text-xs text-rose-700 mt-1">{`${errors.username.message}`}</p>
+          )}
+          {/* <Input label="ID Card" /> */}
+          <Input
+            id="password"
+            errors={errors}
+            label="Password"
+            type="password"
+            required={true}
+            messageRequired="This password field is required"
+            register={register}
+          />
+          {errors.password && (
+            <p className="text-xs text-rose-700 mt-1">{`${errors.password.message}`}</p>
+          )}
+          <div className="flex justify-end w-full mt-4">
+            <p className="text-secondaryColor text-xs italic underline">
+              See room details
+            </p>
+          </div>
+          <Button onClick={handleSubmit(onSubmit)} className="mt-[54px]">
+            REGISTER
+          </Button>
+        </form>
       </div>
     </Modal>
   );
