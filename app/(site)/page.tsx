@@ -8,7 +8,7 @@ export default function Home() {
     <div className="flex flex-col h-full">
       {/* FOR MOBILE VIEW */}
       <div className="md:hidden flex h-fit py-10 px-[32px] w-full items-center justify-between bg-primaryColor">
-        <div className="text-blackColor w-6 h-6">
+        <div className="text-blackColor w-6 h-6 hover:cursor-pointer">
           <BiListUl />
         </div>
         <h1 className="text-base font-semibold text-blackColor tracking-[0.66em]">
