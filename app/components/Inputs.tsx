@@ -6,8 +6,8 @@ interface InputsProps {
   label: string;
   errors: FieldErrors;
   register: UseFormRegister<FieldValues>;
-  messageRequired: string;
   required?: boolean;
+  validate?: FieldValues;
 }
 
 interface InputsProps extends React.InputHTMLAttributes<HTMLInputElement> {}
@@ -17,7 +17,7 @@ const Input = forwardRef<HTMLInputElement, InputsProps>(
     {
       register,
       required,
-      messageRequired,
+      validate,
       id,
       errors,
       label,
@@ -40,14 +40,7 @@ const Input = forwardRef<HTMLInputElement, InputsProps>(
           disabled={disabled}
           {...register(id, {
             required,
-            // validate: {
-            //   matchPattern:
-            //     id === "email"
-            //       ? (v) =>
-            //           /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
-            //           "Email address must be a valid address"
-            //       : (v) => null || "",
-            // },
+            validate: validate,
           })}
           {...props}
         />
