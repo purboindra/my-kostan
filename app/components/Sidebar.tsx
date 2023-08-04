@@ -96,7 +96,7 @@ const Sidebar: React.FC<SidebarProps> = ({ children }) => {
           ))}
         </div>
       </div>
-      <main className="flex-1 h-full overflow-y-auto 2xl:py-24 lg:py-24 xl:py-24 lg:px-12 xl:px-12 2xl:px-12">
+      <main className="flex-1 h-full lg:px-12 xl:px-12 2xl:px-12">
         {children}
       </main>
     </div>

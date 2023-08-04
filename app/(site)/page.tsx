@@ -5,7 +5,7 @@ import RoomsGrid from "../components/RoomsGrid";
 
 export default function Home() {
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full overflow-y-auto 2xl:py-24 lg:py-24 xl:py-24 ">
       {/* FOR MOBILE VIEW */}
       <div className="md:hidden flex h-fit py-10 px-[32px] w-full items-center justify-between bg-primaryColor">
         <div className="text-blackColor w-6 h-6 hover:cursor-pointer">
