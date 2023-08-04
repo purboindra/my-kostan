@@ -3,7 +3,7 @@ import TableRoom from "../components/TableRoom";
 
 export default function Room() {
   return (
-    <div className="flex flex-col h-full w-full lg:px-0 xl:px-0 2xl:px-0 px-5 lg:py-0 xl:py-0 2xl:py-0 py-7">
+    <div className="flex flex-col h-full overflow-y-auto lg:px-0 xl:px-0 2xl:px-0 px-5 2xl:py-24 lg:py-24 xl:py-24 py-7">
       <div className="flex flex-row justify-between">
         <div className="flex flex-col gap-1 items-start">
           <h1 className="text-4xl font-semibold text-blackColor">Room</h1>
