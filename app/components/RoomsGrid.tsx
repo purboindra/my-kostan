@@ -1,7 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useCallback } from "react";
 import useAuthModal from "../hooks/useAuthModal";
+import { useSession } from "next-auth/react";
 
 type roomType = {
   roomId: number;
@@ -65,6 +66,12 @@ const RoomsGrid: React.FC<IRoomsGrid> = ({ label }) => {
   ];
 
   const { onOpen } = useAuthModal();
+  const { data: session } = useSession();
+
+  const handleOnOpen = useCallback(() => {
+    if (session?.user) return;
+    onOpen();
+  }, [session?.user, onOpen]);
 
   return (
     <div className="w-full flex flex-col">
@@ -73,7 +80,7 @@ const RoomsGrid: React.FC<IRoomsGrid> = ({ label }) => {
       <div className="mt-[30px] grid grid-cols-4 lg:grid-cols-6 xl:grid-cols-6 2xl:grid-cols-6 gap-4">
         {melaatiRooms.map((room) => (
           <div
-            onClick={onOpen}
+            onClick={handleOnOpen}
             key={room.roomId}
             className={`w-[90px] h-[90px] rounded-lg shadow-lg mr-0 md:mr-0 sm:mr-0 lg:mr-[21px] xl:mr-[21px] 2xl:mr-[21px] ${
               room.isAvailable ? "bg-primaryColor" : "bg-secondaryColor"
